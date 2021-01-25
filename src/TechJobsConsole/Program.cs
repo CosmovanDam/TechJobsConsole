@@ -119,6 +119,7 @@ namespace TechJobsConsole
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
             // Console.WriteLine("PrintJobs is not implemented yet");
+
             // Loops through and searches each line within a dictionary
             // within a list and prints them after typing a number in the 
             // list for all jobs
@@ -130,6 +131,11 @@ namespace TechJobsConsole
                     Console.WriteLine(name.Key + ": " + name.Value);
                 }
                 Console.WriteLine("*****\n");
+            }
+
+            if (someJobs.Count == 0)
+            {
+                Console.WriteLine("\nNo results.");
             }
         }
     }
