@@ -135,7 +135,7 @@ namespace TechJobsConsole
                 Console.WriteLine("*****\n");
             }
 
-            Console.WriteLine(someJobs.Count);
+            // Console.WriteLine(someJobs.Count);
 
             if (someJobs.Count == 0)
             {
