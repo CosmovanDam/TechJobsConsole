@@ -68,6 +68,7 @@ namespace TechJobsConsole
             // are to be the searchTerms that are used to pull the rest of the data from job_data. So if I type
             // Seattle. Then all jobs involved in Seattle will appear once I search in the All search area, but I
             // could type .NET in the same All search area and receive all jobs with .NET
+
             List<Dictionary<string, string>> all = new List<Dictionary<string, string>>();
             // TODO: Figure out how to make this damn thing work
             // Oh my god, it worked...
@@ -76,12 +77,16 @@ namespace TechJobsConsole
             {
                 foreach (KeyValuePair<string, string> column in job)
                 {
-                    if (value.ToLower() == column.Value.ToLower()) // Added .ToLower to value and column.Value
+                    if (column.Value.ToLower().Contains(value.ToLower())) // Added .ToLower to value and column.Value
                     {
-                        all.Add(job); 
+                        all.Add(job);
+                        break;
                     }
                 }
+                
             }
+
+            
 
             return all;
         }
