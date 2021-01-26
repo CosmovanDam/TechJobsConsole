@@ -58,6 +58,34 @@ namespace TechJobsConsole
             return jobs;
         }
 
+        // FindByValue method to allow users to search all of the columns for a given
+        // string
+        public static List<Dictionary<string, string>> FindByValue(string value)
+        {
+
+            LoadData();
+            // Initializes the return List for PrintJobs to display. The values (employment, name, location, etc.)
+            // are to be the searchTerms that are used to pull the rest of the data from job_data. So if I type
+            // Seattle. Then all jobs involved in Seattle will appear once I search in the All search area, but I
+            // could type .NET in the same All search area and receive all jobs with .NET
+            List<Dictionary<string, string>> all = new List<Dictionary<string, string>>();
+            // TODO: Figure out how to make this damn thing work
+            // Oh my god, it worked...
+
+            foreach (Dictionary<string, string> job in AllJobs)
+            {
+                foreach (KeyValuePair<string, string> column in job)
+                {
+                    if (value == column.Value)
+                    {
+                        all.Add(job); 
+                    }
+                }
+            }
+
+            return all;
+        }
+
         /*
          * Load and parse data from job_data.csv
          */
